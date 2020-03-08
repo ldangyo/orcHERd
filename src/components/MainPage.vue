@@ -1,9 +1,14 @@
 <template>
   <div class="MainPage">
-    <OrchardCanvas />
-    <NavBar />
-    <!-- {{getSavingGoals}} -->
-    <SavingsCard />
+    <div class="nav">
+      <NavBar />
+    </div>
+    <div class="orchard">
+      <OrchardCanvas />
+    </div>
+    <div class="savingsCard">
+      <SavingsCard />
+    </div>
   </div>
 </template>
 
@@ -32,7 +37,20 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.loginCred {
-  padding-top: 2rem;
+.MainPage {
+  display: flex;
+}
+.orchard {
+  width: 50%;
+  padding-left: 2rem;
+  padding-right: 6.75rem;
+  overflow: hidden;
+  margin-top: 3rem;
+}
+
+.savingsCard {
+  width: 50%;
+  padding-right: 7rem;
+  margin-top: 3rem;
 }
 </style>
