@@ -1,21 +1,30 @@
 <template>
   <div class="OrchardCanvas">
-    <div class="button right" @click="nextTree()">
-      <img class="arrow right" src="@/assets/rightarrow.svg" alt />
-    </div>
-    <div class="button left" @click="backTree()">
-      <img class="arrow left" src="@/assets/leftarrow.svg" alt />
+    <div v-if="savings">
+      <div class="button right" @click="nextTree()">
+        <img class="arrow right" src="@/assets/rightarrow.svg" alt />
+      </div>
+      <div class="button left" @click="backTree()">
+        <img class="arrow left" src="@/assets/leftarrow.svg" alt />
 
-      <div class="OrchardCanvas allTrees" v-if="treeClicked" @click="mainTreeClicked()">
-        <div class="mainTree"></div>
-        <div class="goalTree" v-if="getAddedTree">
-          <TreeGoal type="sprout" />
+        <div class="OrchardCanvas allTrees" v-if="treeClicked" @click="mainTreeClicked()">
+          <div class="mainTree"></div>
+          <div class="goalTree" v-if="getAddedTree">
+            <TreeGoal type="sprout" />
+          </div>
+        </div>
+        <div class="OrchardCanvas sky" v-if="soloTree">
+          <div class="mainTree"></div>
+          <div class="goalTree">
+            <TreeGoal type="teen" />
+          </div>
         </div>
       </div>
+    </div>
+    <div v-if="spendings">
       <div class="OrchardCanvas sky" v-if="soloTree">
-        <div class="mainTree"></div>
-        <div class="goalTree">
-          <TreeGoal type="teen" />
+        <div v-if="spuce">
+          <TreeGoal treeType="skinny" />
         </div>
       </div>
     </div>

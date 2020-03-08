@@ -9,12 +9,12 @@ export default {
   //calls different tree states
   name: "TreeSVG",
   prop: {
-    type: String
+    typeTree: String
   },
   computed: {
     getTreeImg() {
       console.log("heyWHYo");
-      console.log(this.type);
+      console.log(this.typeTree);
       switch (true) {
         case this.type === "sprout":
           console.log("hewyo");
