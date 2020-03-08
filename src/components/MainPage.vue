@@ -1,10 +1,26 @@
 <template>
-  <div class="MainPage">Helo</div>
+  <div class="MainPage">
+    <OrchardCanvas />
+    {{getSavingGoals}}
+  </div>
 </template>
 
 <script>
+import OrchardCanvas from "./OrchardCanvas.vue";
+import { mapGetters } from "vuex";
+
 export default {
-  name: "MainPage"
+  name: "MainPage",
+  components: {
+    OrchardCanvas
+  },
+  computed: {
+    ...mapGetters(["getSavingGoals"]),
+
+    showGoal: function() {
+      return this.getSavingGoals;
+    }
+  }
 };
 </script>
 
