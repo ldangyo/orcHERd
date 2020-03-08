@@ -3,6 +3,7 @@
     <OrchardCanvas />
     <NavBar />
     <!-- {{getSavingGoals}} -->
+    <SavingsCard />
   </div>
 </template>
 
