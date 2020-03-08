@@ -1,4 +1,5 @@
 # orcherd
+This is a project created for the cmd-f 2020 hackathon.
 
 ## Project setup
 ```
