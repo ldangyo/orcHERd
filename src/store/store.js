@@ -5,6 +5,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
+<<<<<<< HEAD
         savingGoals: [
             { name: "Korea Vacation2", amountSaved: "5", amountReq: "56", category: "Entertainment" },
             { name: "Korea Vacation", amountSaved: "5", amountReq: "56", category: "Entertainment" },
@@ -14,17 +15,31 @@ export default new Vuex.Store({
         selectedGoalIndex: 0,
         showGoalInfo: false,
 
+=======
+        totalMoney: 25,
+        savingGoals: [
+            { name: "Korea Vacation", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2020-09-28") },
+            { name: "New Pair of Skates", amountSaved: 20, amountReq: 147, category: "Sports", targetDate: new Date("2020-06-01") }
+        ],
+        categories: ['Makeup', 'Clothing', 'Sports', 'Food', 'Entertainment', 'Travel', 'Social', 'Toy', 'Other'],
+>>>>>>> Implement SavingsCard component
     },
 
     getters: {
+        getTotalMoney: state => state.totalMoney,
         getSavingGoals: state => {
             return state.savingGoals
         },
+<<<<<<< HEAD
         getselectedGoalIndex: state => {
             return state.selectedGoalIndex
         },
         getshowGoalInfo: state => {
             return state.showGoalInfo
+=======
+        getCategories: state => {
+            return state.categories
+>>>>>>> Implement SavingsCard component
         }
     },
 
