@@ -21,6 +21,8 @@ export default new Vuex.Store({
 
         categories: ['Makeup', 'Clothing', 'Sports', 'Food', 'Entertainment', 'Travel', 'Social', 'Toy', 'Other'],
         spendings: [],
+
+        currPage: '',
     },
 
     getters: {
@@ -39,6 +41,9 @@ export default new Vuex.Store({
         },
         getCategories: state => {
             return state.categories
+        },
+        getCurrPage: state => {
+            return state.currPage
         }
     },
 
@@ -76,6 +81,10 @@ export default new Vuex.Store({
         changeShowGoalInfo({ commit }, data) {
             commit("setShowGoalInfo", data)
         },
+
+        setCurrPage({ commit }, data) {
+            commit("setCurrPage", data)
+        }
     },
 
     mutations: {
@@ -98,6 +107,10 @@ export default new Vuex.Store({
         setAddGoal(state, data) {
             state.savingGoals.push(data)
         },
+
+        setCurrPage(state, data) {
+            state.currPage = data;
+        }
     },
 
 

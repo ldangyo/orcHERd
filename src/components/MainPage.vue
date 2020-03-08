@@ -6,9 +6,18 @@
     <div class="orchard">
       <OrchardCanvas />
     </div>
-    <div class="savingsCard">
-      <!-- <SavingsCard /> -->
-      <SpendingsCard />
+    <div v-if="!currPage" class="savingsCard">
+      <!-- default -->
+      <SavingsCard />
+    </div>
+    <div v-else class="savingsCard">
+      <div v-if="onSavingsPage">
+        <SavingsCard />
+      </div>
+      <div v-else-if="onSpendingsPage">
+        <SpendingsCard />
+      </div>
+      <div v-else-if="onTasksPage">Task Card</div>
     </div>
   </div>
 </template>
@@ -16,8 +25,8 @@
 <script>
 import OrchardCanvas from "./OrchardCanvas.vue";
 import NavBar from "./NavBar";
-// import SavingsCard from "./SavingsCard.vue";
-import SpendingsCard from './SpendingsCard.vue';
+import SavingsCard from "./SavingsCard.vue";
+import SpendingsCard from "./SpendingsCard.vue";
 import { mapGetters } from "vuex";
 
 export default {
@@ -25,14 +34,31 @@ export default {
   components: {
     OrchardCanvas,
     NavBar,
-    // SavingsCard
+    SavingsCard,
     SpendingsCard
   },
+  module: {},
   computed: {
-    ...mapGetters(["getSavingGoals"]),
+    ...mapGetters(["getSavingGoals", "getCurrPage"]),
 
     showGoal: function() {
       return this.getSavingGoals;
+    },
+
+    currPage: function() {
+      return this.getCurrPage;
+    },
+
+    onSavingsPage: function() {
+      return this.getCurrPage === "Savings";
+    },
+
+    onSpendingsPage: function() {
+      return this.getCurrPage === "Spendings";
+    },
+
+    onTasksPage: function() {
+      return this.getCurrPage === "Tasks";
     }
   }
 };

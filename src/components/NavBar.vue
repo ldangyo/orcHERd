@@ -10,9 +10,9 @@
 
     <div class="navButtons">
       <div class="navButt">
-        <button class="buttons">Savings</button>
-        <button class="buttons">Spending</button>
-        <button class="buttons">Tasks</button>
+        <button class="buttons" v-on:click="setCurrPageToSavings">Savings</button>
+        <button class="buttons" v-on:click="setCurrPageToSpendings">Spending</button>
+        <button class="buttons" v-on:click="setCurrPageToTasks">Tasks</button>
       </div>
       <div class="navIcons">
         <button class="icon">
@@ -31,7 +31,18 @@
 
 <script>
 export default {
-  name: "NavBar"
+  name: "NavBar",
+  methods: {
+    setCurrPageToSavings: function() {
+      this.$store.dispatch("setCurrPage", "Savings");
+    },
+    setCurrPageToSpendings: function() {
+      this.$store.dispatch("setCurrPage", "Spendings");
+    },
+    setCurrPageToTasks: function() {
+      this.$store.dispatch("setCurrPage", "Tasks");
+    }
+  }
 };
 </script>
 

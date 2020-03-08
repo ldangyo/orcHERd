@@ -159,7 +159,6 @@ export default {
 }
 
 .SavingsGoalsContainer {
-  border: 1px solid;
   height: 200px;
   overflow: scroll;
   overflow-x: hidden;
