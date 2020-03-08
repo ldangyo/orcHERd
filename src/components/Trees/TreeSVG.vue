@@ -14,7 +14,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .TreeSVG {
-  width: 28rem;
+  width: 23rem;
   position: absolute;
 }
 </style>

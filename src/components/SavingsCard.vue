@@ -37,8 +37,8 @@
         </div>
       </div>
       <div class="baseBar">Total Money ${{getTotal}}</div>
-      <modal v-show="isModalVisible" @close="closeModal" />
-      <button @click="showModal()">Add a goal</button>
+      <GoalModal v-show="isGoalModalVisible" @close="closeGoalModal" />
+      <button @click="showGoalModal()">Add a goal</button>
     </div>
   </div>
 </template>
@@ -46,7 +46,7 @@
 <!-- Javascript -->
 <script>
 import { mapGetters } from "vuex";
-import modal from "./modal";
+import GoalModal from "./GoalModal";
 
 export default {
   name: "SavingsCard",
@@ -56,20 +56,20 @@ export default {
 
       this.$store.dispatch("addGoal", goal);
     },
-    showModal() {
-      this.isModalVisible = true;
+    showGoalModal() {
+      this.isGoalModalVisible = true;
     },
-    closeModal() {
-      this.isModalVisible = false;
+    closeGoalModal() {
+      this.isGoalModalVisible = false;
     }
   },
   components: {
-    modal
+    GoalModal
   },
   data: function() {
     return {
       selected: "Sort by categories",
-      isModalVisible: false
+      isGoalModalVisible: false
     };
   },
 

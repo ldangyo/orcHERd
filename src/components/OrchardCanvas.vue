@@ -93,7 +93,7 @@ export default {
 <style scoped>
 .OrchardCanvas {
   width: 100%;
-  height: 37rem;
+  height: 31rem;
   background-color: black;
   border-radius: 15px;
 }
@@ -128,6 +128,6 @@ export default {
   position: absolute;
   z-index: 0;
   bottom: 40%;
-  right: 55.9%;
+  left: 390px;
 }
 </style>

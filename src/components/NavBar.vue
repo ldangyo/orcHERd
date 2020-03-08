@@ -21,11 +21,10 @@
         <button class="icon">
           <img src="../assets/settings.png" alt />
         </button>
-        
       </div>
       <button class="profile">
-          <img src="../assets/profilePic.png" alt />
-        </button>
+        <img src="../assets/profilePic.png" alt />
+      </button>
     </div>
   </div>
 </template>
@@ -45,6 +44,8 @@ export default {
   position: fixed;
   border-bottom: 1px solid #d4c1b2;
   align-items: center;
+  background-color: white;
+  margin-bottom: 20rem;
 
   display: flex;
   flex-direction: row;
@@ -55,8 +56,8 @@ export default {
 }
 
 .navButtons {
-    display: flex;
-    align-self: centre;
+  display: flex;
+  align-self: centre;
 }
 
 .home {
@@ -98,20 +99,19 @@ export default {
   /* align-self: center; */
 }
 
-.navButt{
-    padding-top: 15px;
-    align-self: center;
+.navButt {
+  padding-top: 15px;
+  align-self: center;
 }
 
-.navIcons{
-    padding-top: 15px;
-    align-self: center;
+.navIcons {
+  padding-top: 15px;
+  align-self: center;
 }
 
-.profile{
-    padding-top: 10px;
-     border: none;
+.profile {
+  padding-top: 10px;
+  border: none;
   background: none;
 }
-
 </style>
