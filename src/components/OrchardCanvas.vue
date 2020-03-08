@@ -1,7 +1,13 @@
 <template>
   <div class="OrchardCanvas">
     OrchardCanvas
-    <button v-on:click="showGoal()">yello</button>
+    <div class="mainTree"></div>
+    <div class="goalTree"></div>
+    <button class="button" @click="nextTree()">next</button>
+    <button class="button" @click="backTree()">back</button>
+    <!-- <div v-for="(goal, index) in getSavingGoals" :key="index">
+    <div>{{ goal.name }}</div>-->
+    <!-- </div> -->
   </div>
 </template>
 
@@ -10,20 +16,39 @@ import { mapGetters } from "vuex";
 export default {
   name: "OrchardCanvas",
   methods: {
-    showGoal() {
-      const goal = {
-        name: "Vacation",
-        amountSaved: "65",
-        amountReq: "56",
-        category: "Entertainment"
-      };
-      this.$store.dispatch("addGoal", goal);
-      console.log(this.getSavingGoals);
+    getGoalTree() {
+      var curTree = this.getSavingGoals[this.selectedGoalIndex];
+      this.curTreePosIndex++;
+      return curTree;
+    },
+    nextTree() {
+      //   console.log(this.selectedGoalIndex);
+      this.$store.dispatch("incrGoalIndex");
+    },
+    backTree() {
+      //   console.log(this.selectedGoalIndex);
+      this.$store.dispatch("decrGoalIndex");
+    },
+    getGoalInfo() {
+      this.$store.dispatch("changeShowGoalInfo");
     }
+
+    // showGoal() {
+    //   const goal = {
+    //     name: "Vacation",
+    //     amountSaved: "65",
+    //     amountReq: "56",
+    //     category: "Entertainment"
+    //   };
+    //   this.$store.dispatch("addGoal", goal)
+    // }
   },
 
   computed: {
-    ...mapGetters(["getSavingGoals"])
+    curGoalTree() {
+      return this.getSavingGoals[this.selectedGoalIndex];
+    },
+    ...mapGetters(["getSavingGoals", "selectedGoalIndex"])
   }
 };
 </script>
