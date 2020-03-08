@@ -1,12 +1,11 @@
 <template>
   <div class="OrchardCanvas">
-    <div v-if="savings">
+    <div v-if="getSavings">
       <div class="button right" @click="nextTree()">
         <img class="arrow right" src="@/assets/rightarrow.svg" alt />
       </div>
       <div class="button left" @click="backTree()">
         <img class="arrow left" src="@/assets/leftarrow.svg" alt />
-
         <div class="OrchardCanvas allTrees" v-if="treeClicked" @click="mainTreeClicked()">
           <div class="mainTree"></div>
           <div class="goalTree" v-if="getAddedTree">
@@ -21,7 +20,7 @@
         </div>
       </div>
     </div>
-    <div v-if="spendings">
+    <div v-if="getSpendings">
       <div class="OrchardCanvas sky" v-if="soloTree">
         <div v-if="spuce">
           <TreeGoal treeType="skinny" />
@@ -93,7 +92,13 @@ export default {
     curGoalTree() {
       return this.getSavingGoals[this.getSelectedGoalIndex];
     },
-    ...mapGetters(["getSavingGoals", "getSelectedGoalIndex", "getAddedTree"])
+    ...mapGetters([
+      "getSavingGoals",
+      "getSelectedGoalIndex",
+      "getAddedTree",
+      "getSpendings",
+      "getSavings"
+    ])
   }
 };
 </script>
