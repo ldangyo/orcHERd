@@ -1,6 +1,5 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
-// import { mockSavingGoals } from '../helpers/mockSavingGoals'
 
 Vue.use(Vuex);
 
@@ -17,9 +16,15 @@ export default new Vuex.Store({
     },
 
     mutations: {
+        setAddGoal(state, data) {
+            state.savingGoals.push(data)
+        }
 
     },
 
     actions: {
+        addGoal(state, data) {
+            state.commit("setAddGoal", data)
+        }
     }
 });

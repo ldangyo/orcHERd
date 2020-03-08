@@ -1,10 +1,30 @@
 <template>
-  <div class="OrchardCanvas">OrchardCanvas</div>
+  <div class="OrchardCanvas">
+    OrchardCanvas
+    <button v-on:click="showGoal()">yello</button>
+  </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
-  name: "OrchardCanvas"
+  name: "OrchardCanvas",
+  methods: {
+    showGoal() {
+      const goal = {
+        name: "Vacation",
+        amountSaved: "65",
+        amountReq: "56",
+        category: "Entertainment"
+      };
+      this.$store.dispatch("addGoal", goal);
+      console.log(this.getSavingGoals);
+    }
+  },
+
+  computed: {
+    ...mapGetters(["getSavingGoals"])
+  }
 };
 </script>
 
