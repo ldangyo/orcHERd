@@ -6,20 +6,37 @@
     <div v-if="shouldShowGoalInfo">
       <!-- TODO: Implement card for showing specific goal info here -->
     </div>
-    <div v-else>
-      <h4 class="title">Spend Money</h4>
+    <div class="cardContents" v-else>
+      <h3 class="title">Spend Money</h3>
+      <div class="empty"></div>
       <div class="formRow">
-        <p>Amount*</p>
-        <b-form-input v-model="amount" class="inputBox" placeholder="e.g. 20.00"></b-form-input>
+        <h4>
+          <p>Amount*</p>
+        </h4>
+        <b-form-input
+          v-model="amount"
+          class="inputBox"
+          style="text-align:right"
+          placeholder="e.g. 20.00"
+        ></b-form-input>
       </div>
       <div class="formRow">
-        <p>Title*</p>
-        <b-form-input v-model="title" class="inputBox" placeholder="e.g. Eyeshadow"></b-form-input>
+        <h4>
+          <p>Title*</p>
+        </h4>
+        <b-form-input
+          v-model="title"
+          class="inputBox"
+          style="text-align:right"
+          placeholder="e.g. Eyeshadow"
+        ></b-form-input>
       </div>
       <div class="formRow">
-        <p>Category*</p>
-        <select v-model="selected">
-          <option disabled value>Please select one</option>
+        <h4>
+          <p>Category*</p>
+        </h4>
+        <select class="dropDownMenu" v-model="selected">
+          <option style="background:none" disabled value>Please select one</option>
           <option>Makeup</option>
           <option>Clothing</option>
           <option>Sports</option>
@@ -32,8 +49,15 @@
         </select>
       </div>
       <div class="formRow">
-        <p>Description</p>
-        <b-form-input v-model="description" class="inputBox" placeholder="e.g. gift for sister"></b-form-input>
+        <h4>
+          <p>Description</p>
+        </h4>
+        <b-form-input
+          v-model="description"
+          class="inputBox"
+          style="text-align:right"
+          placeholder="e.g. gift for sister"
+        ></b-form-input>
       </div>
       <div class="Buttons">
         <b-button variant="outline-dark" class="cancelButton">Cancel</b-button>
@@ -161,22 +185,28 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  background-color: #e1dddd;
+  background-color: #edeae7;
   color: #4d2d13;
   text-align: left;
-  padding-left: 37px;
-  padding-right: 37px;
+  content: 10rem;
   padding-top: 5px;
 }
 
 .title {
-  color: black;
+  color: #4d2d13;
   margin-top: 15px;
   padding-bottom: 10px;
 }
 
 .inputBox {
   width: 200px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  /* border-bottom:#4D2D13; */
+  background: none;
+  margin-left: 11rem;
+  position: right;
 }
 
 .SavingsGoalsContainer {
@@ -208,6 +238,7 @@ export default {
   display: flex;
   justify-content: space-between;
   margin-bottom: 8px;
+  align-items: baseline;
 }
 
 .Buttons {
@@ -218,5 +249,30 @@ export default {
 
 .cancelButton {
   margin-right: 10px;
+}
+
+.confirmButton {
+  background-color: #badff1;
+  border: none;
+  color: #4d2d13;
+}
+
+.cardContents {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.dropDownMenu {
+  color: rgb(94, 94, 94);
+  background: none;
+  border: none;
+  font-size: 16px;
+  position: right;
+  width: 30%;
+}
+
+.empty {
+  width: 100%;
+  height: 1.25rem;
 }
 </style>
