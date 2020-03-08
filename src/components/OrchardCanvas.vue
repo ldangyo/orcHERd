@@ -1,15 +1,17 @@
 <template>
   <div class="OrchardCanvas">
-    OrchardCanvas
-    <div class="mainTree"></div>
-    <div class="goalTree">
-      <TreeGoal />
+    <div class="OrchardCanvas">
+      OrchardCanvas
+      <div class="mainTree"></div>
+      <div class="goalTree">
+        <TreeGoal />
+      </div>
+      <button class="button" @click="nextTree()">next</button>
+      <button class="button" @click="backTree()">back</button>
+      <!-- <div v-for="(goal, index) in getSavingGoals" :key="index">
+      <div>{{ goal.name }}</div>-->
+      <!-- </div> -->
     </div>
-    <button class="button" @click="nextTree()">next</button>
-    <button class="button" @click="backTree()">back</button>
-    <!-- <div v-for="(goal, index) in getSavingGoals" :key="index">
-    <div>{{ goal.name }}</div>-->
-    <!-- </div> -->
   </div>
 </template>
 
@@ -62,9 +64,19 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .OrchardCanvas {
-  width: 50%;
-  height: 35rem;
+  width: 100%;
+  height: 37rem;
   background-color: plum;
   border-radius: 15px;
+  background-image: url("../assets/BackGround/sky.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.OrchardCanvas .allTrees {
+  background-image: url("../assets/BackGround/all savings.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 </style>

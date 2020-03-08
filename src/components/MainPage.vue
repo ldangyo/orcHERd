@@ -1,8 +1,11 @@
 <template>
   <div class="MainPage">
-    <OrchardCanvas />
-    <!-- {{getSavingGoals}} -->
-    <SavingsCard />
+    <div class="orchard">
+      <OrchardCanvas />
+    </div>
+    <div class="savingsCard">
+      <SavingsCard />
+    </div>
   </div>
 </template>
 
@@ -15,7 +18,7 @@ export default {
   name: "MainPage",
   components: {
     OrchardCanvas,
-    SavingsCard,
+    SavingsCard
   },
   computed: {
     ...mapGetters(["getSavingGoals"]),
@@ -30,6 +33,16 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .MainPage {
-  padding: 2rem;
+  display: flex;
+}
+.orchard {
+  width: 50%;
+  padding-left: 2rem;
+  padding-right: 6.75rem;
+}
+
+.savingsCard {
+  width: 50%;
+  padding-right: 7rem;
 }
 </style>

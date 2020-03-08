@@ -27,7 +27,8 @@ export default {
 .TreeGoal {
   padding-top: 2rem;
 }
-/* .container {
-  position: absolute;
-} */
+.container {
+  display: flex;
+  justify-content: center;
+}
 </style>
