@@ -22,7 +22,7 @@ export default {
         case this.type === "teen":
           return "goalgreen3";
         default:
-          return "goalpink2";
+          return "goalpink3";
       }
     }
   }

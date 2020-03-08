@@ -93,7 +93,7 @@ export default {
 <style scoped>
 .OrchardCanvas {
   width: 100%;
-  height: 31rem;
+  height: 35rem;
   background-color: black;
   border-radius: 15px;
 }
@@ -118,7 +118,7 @@ export default {
   opacity: 0;
 }
 .button .left {
-  left: 30px;
+  left: 33px;
   position: absolute;
   z-index: 1;
   bottom: 40%;
@@ -128,6 +128,6 @@ export default {
   position: absolute;
   z-index: 0;
   bottom: 40%;
-  left: 390px;
+  left: 36.25rem;
 }
 </style>
