@@ -7,10 +7,10 @@
       <!-- TODO: Implement card for showing specific goal info here -->
     </div>
     <div v-else>
-      <h3>Savings</h3>
+      <h2>Savings</h2>
       <div class="subBox">Main Tree ${{getMainTreeMoney}}</div>
-      <h4>Saving Goals</h4>
-      <select v-model="selected">
+      <h4 style="margin-bottom:0">Saving Goals</h4>
+      <select class="dropDownMenu" v-model="selected">
         <option disabled value>Please select one</option>
         <option>Sort by categories</option>
         <option>Sort by target date</option>
@@ -20,7 +20,7 @@
           <ul class="savingsGoals">
             <div v-for="cat in getGoalsSortedByCategory" :key="cat.categoryName">
               <div v-if="cat.goals.length > 0">
-                <h4>{{cat.categoryName}}</h4>
+                <h4  style="margin-bottom:0">{{cat.categoryName}}</h4>
                 <div v-for="goal in cat.goals" :key="goal.name">
                   <div class="subBox">{{ goal.name }} ${{goal.amountSaved}}/{{goal.amountReq}}</div>
                 </div>
@@ -36,9 +36,19 @@
           </ul>
         </div>
       </div>
-      <div class="baseBar">Total Money ${{getTotal}}</div>
-      <GoalModal v-show="isGoalModalVisible" @close="closeGoalModal" />
-      <button @click="showGoalModal()">Add a goal</button>
+      <div class="empty"></div>
+      <div class="bottom">
+        <div class="baseBar">
+          <h3>Total Savings</h3>
+          <div class="blank"></div>
+          <h3>${{getTotal}}</h3>
+        </div>
+        <GoalModal v-show="isGoalModalVisible" @close="closeGoalModal" />
+        <button class="goalButt" @click="showGoalModal()">
+          <img src="../assets/addmoney.png" alt />
+        </button>
+      </div>
+      <h5 style="padding-left:84%; margin-top:0">Add a Goal!</h5>
     </div>
   </div>
 </template>
@@ -150,8 +160,8 @@ export default {
   width: 100%;
   height: 100%;
   border-radius: 15px;
-  background-color: #e1dddd;
-  color: #000000;
+  background-color: #edeae7;
+  color: #4d2d13;
   text-align: left;
   padding-left: 37px;
   padding-right: 37px;
@@ -159,7 +169,6 @@ export default {
 }
 
 .SavingsGoalsContainer {
-  border: 1px solid;
   height: 200px;
   overflow: scroll;
   overflow-x: hidden;
@@ -168,6 +177,8 @@ export default {
 
 .savingsGoals {
   padding: 0px;
+margin-bottom: 0;
+  vertical-align: middle;
 }
 
 .subBox {
@@ -177,9 +188,41 @@ export default {
   border-radius: 8px;
 }
 
-.baseBar {
-  background-color: grey;
+.dropDownMenu {
+  border: none;
+  border-radius: 0.9375rem;
+  background: none;
+  padding-left: 1.25rem;
+}
+
+.empty {
   width: 100%;
-  border-radius: 35px;
+  height: 1.25rem;
+}
+
+.blank {
+  width: 50%;
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.baseBar {
+  position: right;
+
+  background-color: #badff1;
+  width: 80%;
+  border-radius: 0.9375rem;
+  padding: 0.625rem;
+  display: flex;
+  align-self: center;
+}
+
+.goalButt {
+  position: right;
+  border: none;
+  background: none;
 }
 </style>
