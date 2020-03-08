@@ -20,8 +20,11 @@ export default new Vuex.Store({
         selectedMainTree: false,
         addedTree: false,
 
-        savings: false,
+        savings: true,
         spendings: false,
+
+        skinnyTree: false,
+        bushyTree: true,
 
         categories: ['Makeup', 'Clothing', 'Sports', 'Food', 'Entertainment', 'Travel', 'Social', 'Toy', 'Other'],
     },
@@ -46,10 +49,15 @@ export default new Vuex.Store({
         },
         getCategories: state => {
             return state.categories
-        }
+        },
+        getBushyTree: state => state.bushyTree,
+        getSkinnyTree: state => state.skinnyTree,
     },
 
     actions: {
+        updateTreeType({ commit }, data) {
+            commit("setTreeType", data)
+        },
         updateType({ commit }, data) {
             commit("setType", data)
         },
@@ -94,6 +102,15 @@ export default new Vuex.Store({
     },
 
     mutations: {
+        setTreeType(state, data) {
+            if (data === 'skinny') {
+                state.skinnyTree = true;
+                state.bushyTree = false;
+            } else {
+                state.bushyTree = true
+                state.skinnyTree = false
+            }
+        },
         //setters for goals
         setType(state, data) {
             if (data === 'savings') {
