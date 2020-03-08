@@ -7,11 +7,11 @@ export default new Vuex.Store({
     state: {
         totalMoney: 1000,
         savingGoals: [
-            { name: "Korea Vacation", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2020-09-28") },
+            { name: "Korea Vacation1", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2020-09-28") },
             { name: "New Pair of Skates", amountSaved: 20, amountReq: 147, category: "Sports", targetDate: new Date("2020-06-01") },
             { name: "Korea Vacation2", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2021-09-28") },
-            { name: "Korea Vacation", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2022-09-28") },
-            { name: "Korea Vacation3", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2023-09-28") },
+            { name: "Korea Vacation0", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2022-09-28") },
+            { name: "Korea Vacation4", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2023-09-28") },
             { name: "Korea Vacation3", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2024-09-28") },
         ],
         selectedGoalIndex: 0,

@@ -39,6 +39,7 @@ export default {
   width: 50%;
   padding-left: 2rem;
   padding-right: 6.75rem;
+  overflow: hidden;
 }
 
 .savingsCard {

@@ -1,42 +1,4 @@
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-.Card {
-  width: 100%;
-  height: 100%;
-  border-radius: 15px;
-  background-color: #e1dddd;
-  color: #000000;
-  text-align: left;
-  padding-left: 37px;
-  padding-right: 37px;
-  padding-top: 5px;
-}
 
-.SavingsGoalsContainer {
-  border: 1px solid;
-  height: 200px;
-  overflow: scroll;
-  overflow-x: hidden;
-  padding-left: -50px;
-}
-
-.savingsGoals {
-  padding: 0px;
-}
-
-.subBox {
-  background-color: white;
-  width: 100%;
-  height: 40px;
-  border-radius: 8px;
-}
-
-.baseBar {
-  background-color: grey;
-  width: 100%;
-  border-radius: 35px;
-}
-</style>
 
 <!-- HTML -->
 <template>
@@ -75,7 +37,8 @@
         </div>
       </div>
       <div class="baseBar">Total Money ${{getTotal}}</div>
-      <button>Add a goal</button>
+      <modal v-show="isModalVisible" @close="closeModal" />
+      <button @click="showModal()">Add a goal</button>
     </div>
   </div>
 </template>
@@ -83,15 +46,33 @@
 <!-- Javascript -->
 <script>
 import { mapGetters } from "vuex";
+import modal from "./modal";
 
 export default {
   name: "SavingsCard",
-  methods: {},
+  methods: {
+    addAGoal() {
+      var goal = "";
+
+      this.$store.dispatch("addGoal", goal);
+    },
+    showModal() {
+      this.isModalVisible = true;
+    },
+    closeModal() {
+      this.isModalVisible = false;
+    }
+  },
+  components: {
+    modal
+  },
   data: function() {
     return {
-      selected: "Sort by categories"
+      selected: "Sort by categories",
+      isModalVisible: false
     };
   },
+
   computed: {
     ...mapGetters([
       "getSavingGoals",
@@ -162,3 +143,43 @@ export default {
   }
 };
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+.Card {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background-color: #e1dddd;
+  color: #000000;
+  text-align: left;
+  padding-left: 37px;
+  padding-right: 37px;
+  padding-top: 5px;
+}
+
+.SavingsGoalsContainer {
+  border: 1px solid;
+  height: 200px;
+  overflow: scroll;
+  overflow-x: hidden;
+  padding-left: -50px;
+}
+
+.savingsGoals {
+  padding: 0px;
+}
+
+.subBox {
+  background-color: white;
+  width: 100%;
+  height: 40px;
+  border-radius: 8px;
+}
+
+.baseBar {
+  background-color: grey;
+  width: 100%;
+  border-radius: 35px;
+}
+</style>
