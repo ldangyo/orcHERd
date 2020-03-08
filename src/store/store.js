@@ -5,24 +5,18 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
     state: {
-<<<<<<< HEAD
+        totalMoney: 1000,
         savingGoals: [
-            { name: "Korea Vacation2", amountSaved: "5", amountReq: "56", category: "Entertainment" },
-            { name: "Korea Vacation", amountSaved: "5", amountReq: "56", category: "Entertainment" },
-            { name: "Korea Vacation3", amountSaved: "5", amountReq: "56", category: "Entertainment" },
-            { name: "Korea Vacation3", amountSaved: "5", amountReq: "56", category: "Entertainment" },
+            { name: "Korea Vacation", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2020-09-28") },
+            { name: "New Pair of Skates", amountSaved: 20, amountReq: 147, category: "Sports", targetDate: new Date("2020-06-01") },
+            { name: "Korea Vacation2", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2021-09-28") },
+            { name: "Korea Vacation", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2022-09-28") },
+            { name: "Korea Vacation3", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2023-09-28") },
+            { name: "Korea Vacation3", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2024-09-28") },
         ],
         selectedGoalIndex: 0,
         showGoalInfo: false,
-
-=======
-        totalMoney: 25,
-        savingGoals: [
-            { name: "Korea Vacation", amountSaved: 5, amountReq: 56, category: "Entertainment", targetDate: new Date("2020-09-28") },
-            { name: "New Pair of Skates", amountSaved: 20, amountReq: 147, category: "Sports", targetDate: new Date("2020-06-01") }
-        ],
         categories: ['Makeup', 'Clothing', 'Sports', 'Food', 'Entertainment', 'Travel', 'Social', 'Toy', 'Other'],
->>>>>>> Implement SavingsCard component
     },
 
     getters: {
@@ -30,16 +24,14 @@ export default new Vuex.Store({
         getSavingGoals: state => {
             return state.savingGoals
         },
-<<<<<<< HEAD
         getselectedGoalIndex: state => {
             return state.selectedGoalIndex
         },
         getshowGoalInfo: state => {
             return state.showGoalInfo
-=======
+        },
         getCategories: state => {
             return state.categories
->>>>>>> Implement SavingsCard component
         }
     },
 
