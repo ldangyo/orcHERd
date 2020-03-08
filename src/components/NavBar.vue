@@ -10,8 +10,8 @@
 
     <div class="navButtons">
       <div class="navButt">
-        <button class="buttons">Savings</button>
-        <button class="buttons">Spending</button>
+        <button class="buttons" @click="savingsClicked()">Savings</button>
+        <button class="buttons" @click="spendingClicked()">Spending</button>
         <button class="buttons">Tasks</button>
       </div>
       <div class="navIcons">
@@ -31,7 +31,15 @@
 
 <script>
 export default {
-  name: "NavBar"
+  name: "NavBar",
+  methods: {
+    savingsClicked() {
+      this.$store.dispatch("updateType", "savings");
+    },
+    spendingClicked() {
+      this.$store.dispatch("updateType", "spending");
+    }
+  }
 };
 </script>
 

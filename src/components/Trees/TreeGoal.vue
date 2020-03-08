@@ -1,7 +1,7 @@
 <template>
   <div class="TreeGoal">
     <div class="container">
-      <TreeSVG />
+      <TreeSVG :typeTree="treeType" />
     </div>
   </div>
 </template>
@@ -15,9 +15,7 @@ export default {
     TreeSVG
   },
   props: {
-    //Goal Name
-    //Goal Category
-    //Goal Progress
+    treeType: String
   }
 };
 </script>
