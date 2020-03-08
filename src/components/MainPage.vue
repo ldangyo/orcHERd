@@ -1,5 +1,8 @@
 <template>
   <div class="MainPage">
+    <div class="nav">
+      <NavBar />
+    </div>
     <div class="orchard">
       <OrchardCanvas />
     </div>
@@ -11,6 +14,7 @@
 
 <script>
 import OrchardCanvas from "./OrchardCanvas.vue";
+import NavBar from "./NavBar";
 import SavingsCard from "./SavingsCard.vue";
 import { mapGetters } from "vuex";
 
@@ -18,6 +22,7 @@ export default {
   name: "MainPage",
   components: {
     OrchardCanvas,
+    NavBar,
     SavingsCard
   },
   computed: {
@@ -40,10 +45,12 @@ export default {
   padding-left: 2rem;
   padding-right: 6.75rem;
   overflow: hidden;
+  margin-top: 3rem;
 }
 
 .savingsCard {
   width: 50%;
   padding-right: 7rem;
+  margin-top: 3rem;
 }
 </style>
