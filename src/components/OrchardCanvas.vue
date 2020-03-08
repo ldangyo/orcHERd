@@ -1,24 +1,31 @@
 <template>
   <div class="OrchardCanvas">
-    <div class="button right" @click="nextTree()">
-      <img class="arrow right" src="@/assets/rightarrow.svg" alt />
-    </div>
-    <div class="button left" @click="backTree()">
-      <img class="arrow left" src="@/assets/leftarrow.svg" alt />
-
-      <div class="OrchardCanvas allTrees" v-if="treeClicked" @click="mainTreeClicked()">
-        OrchardCanvas
-        <div class="mainTree"></div>
-        <div class="goalTree"></div>
+    <div v-if="getSavings">
+      <div class="button right" @click="nextTree()">
+        <img class="arrow right" src="@/assets/rightarrow.svg" alt />
       </div>
-      <div class="OrchardCanvas sky" v-if="soloTree">
-        <div class="mainTree"></div>
-        <div class="goalTree">
-          <TreeGoal />
+      <div class="button left" @click="backTree()">
+        <img class="arrow left" src="@/assets/leftarrow.svg" alt />
+        <div class="OrchardCanvas allTrees" v-if="treeClicked" @click="mainTreeClicked()">
+          <div class="mainTree"></div>
+          <div class="goalTree" v-if="getAddedTree">
+            <TreeGoal type="sprout" />
+          </div>
+        </div>
+        <div class="OrchardCanvas sky" v-if="soloTree">
+          <div class="mainTree"></div>
+          <div class="goalTree">
+            <TreeGoal type="teen" />
+          </div>
         </div>
       </div>
-      <!-- <div v-for="(goal, index) in getSavingGoals" :key="index">
-      <div>{{ goal.name }}</div>-->
+    </div>
+    <div v-if="getSpendings">
+      <div class="OrchardCanvas sky" v-if="soloTree">
+        <div v-if="spuce">
+          <TreeGoal treeType="skinny" />
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -45,6 +52,7 @@ export default {
     },
     nextTree() {
       //   console.log(this.getSelectedGoalIndex);
+      console.log(this.getAddedTree);
       this.$store.dispatch("incrGoalIndex");
     },
     backTree() {
@@ -84,7 +92,13 @@ export default {
     curGoalTree() {
       return this.getSavingGoals[this.getSelectedGoalIndex];
     },
-    ...mapGetters(["getSavingGoals", "getSelectedGoalIndex"])
+    ...mapGetters([
+      "getSavingGoals",
+      "getSelectedGoalIndex",
+      "getAddedTree",
+      "getSpendings",
+      "getSavings"
+    ])
   }
 };
 </script>
@@ -93,7 +107,7 @@ export default {
 <style scoped>
 .OrchardCanvas {
   width: 100%;
-  height: 31rem;
+  height: 35rem;
   background-color: black;
   border-radius: 15px;
 }
@@ -118,7 +132,7 @@ export default {
   opacity: 0;
 }
 .button .left {
-  left: 30px;
+  left: 33px;
   position: absolute;
   z-index: 1;
   bottom: 40%;
@@ -128,6 +142,6 @@ export default {
   position: absolute;
   z-index: 0;
   bottom: 40%;
-  left: 390px;
+  left: 36.25rem;
 }
 </style>

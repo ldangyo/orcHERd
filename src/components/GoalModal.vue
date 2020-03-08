@@ -6,12 +6,28 @@ export default {
     return {
       amount: "",
       goalName: "",
-      category: ""
+      category: "",
+      date: "2020-06-01"
     };
   },
 
   methods: {
     close() {
+      var name = this.goalName;
+      var amountReq = this.amount;
+      var category = this.category;
+      var amountSaved = 0;
+      var targetDate = "2020-06-01";
+
+      const goal = {
+        name,
+        amountSaved,
+        amountReq,
+        category,
+        targetDate
+      };
+      this.$store.dispatch("addGoal", goal);
+      this.$store.dispatch("changeAddedTree", true);
       this.$emit("close");
     }
   }
