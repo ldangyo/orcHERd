@@ -1,6 +1,11 @@
 import Vuex from 'vuex'
 import Vue from 'vue'
+import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 
+// Install BootstrapVue
+Vue.use(BootstrapVue)
+// Optionally install the BootstrapVue icon components plugin
+Vue.use(IconsPlugin)
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -16,6 +21,7 @@ export default new Vuex.Store({
         addedTree: false,
 
         categories: ['Makeup', 'Clothing', 'Sports', 'Food', 'Entertainment', 'Travel', 'Social', 'Toy', 'Other'],
+        spendings: [],
     },
 
     getters: {
