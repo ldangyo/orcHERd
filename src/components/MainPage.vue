@@ -7,7 +7,8 @@
       <OrchardCanvas />
     </div>
     <div class="savingsCard">
-      <SavingsCard />
+      <!-- <SavingsCard /> -->
+      <SpendingsCard />
     </div>
   </div>
 </template>
@@ -15,7 +16,8 @@
 <script>
 import OrchardCanvas from "./OrchardCanvas.vue";
 import NavBar from "./NavBar";
-import SavingsCard from "./SavingsCard.vue";
+// import SavingsCard from "./SavingsCard.vue";
+import SpendingsCard from './SpendingsCard.vue';
 import { mapGetters } from "vuex";
 
 export default {
@@ -23,7 +25,8 @@ export default {
   components: {
     OrchardCanvas,
     NavBar,
-    SavingsCard
+    // SavingsCard
+    SpendingsCard
   },
   computed: {
     ...mapGetters(["getSavingGoals"]),
