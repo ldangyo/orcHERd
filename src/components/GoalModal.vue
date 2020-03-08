@@ -2,6 +2,14 @@
 export default {
   name: "modal",
 
+  data() {
+    return {
+      amount: "",
+      goalName: "",
+      category: ""
+    };
+  },
+
   methods: {
     close() {
       this.$emit("close");
@@ -27,11 +35,11 @@ export default {
             <div class="deadline">Deadline*</div>
           </div>
           <div class="rightModal">
-            <input type="text" id="amount" />
+            <input type="text" id="amount" v-model="amount" />
             <br />
-            <input type="text" id="goalName" />
+            <input type="text" id="goalName" v-model="goalName" />
             <br />
-            <select id="categories" v-model="selected">
+            <select id="category" v-model="category">
               <br />
               <option disabled value>Please select one</option>
               <option>Makeup</option>
@@ -47,8 +55,7 @@ export default {
       </section>
       <footer class="modal-footer">
         <slot name="footer">
-          I'm the default footer!
-          <button type="button" class="btn-green" @click="close">Close me!</button>
+          <button type="button" class="btn-green" @click="close">Create Goal</button>
         </slot>
       </footer>
     </div>
