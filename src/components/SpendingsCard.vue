@@ -7,31 +7,39 @@
       <!-- TODO: Implement card for showing specific goal info here -->
     </div>
     <div v-else>
-      <h3>Spend Money</h3>
-      <div>
+      <h4 class="title">Spend Money</h4>
+      <div class="formRow">
         <p>Amount*</p>
         <b-form-input v-model="amount" class="inputBox" placeholder="e.g. 20.00"></b-form-input>
-        <div class="mt-2">Value: {{ amount }}</div>
       </div>
-      <div>
+      <div class="formRow">
         <p>Title*</p>
         <b-form-input v-model="title" class="inputBox" placeholder="e.g. Eyeshadow"></b-form-input>
-        <div class="mt-2">Value: {{ title }}</div>
       </div>
-      <div>
+      <div class="formRow">
         <p>Category*</p>
-        <b-form-input v-model="category" class="inputBox" placeholder="Enter your name"></b-form-input>
-        <div class="mt-2">Value: {{ category }}</div>
+        <select v-model="selected">
+          <option disabled value>Please select one</option>
+          <option>Makeup</option>
+          <option>Clothing</option>
+          <option>Sports</option>
+          <option>Food</option>
+          <option>Entertainment</option>
+          <option>Travel</option>
+          <option>Social</option>
+          <option>Toy</option>
+          <option>Other</option>
+        </select>
       </div>
-      <div>
+      <div class="formRow">
         <p>Description</p>
         <b-form-input v-model="description" class="inputBox" placeholder="e.g. gift for sister"></b-form-input>
-        <div class="mt-2">Value: {{ description }}</div>
       </div>
-      <b-button variant="outline-dark">Cancel</b-button>
-      <b-button variant="info">Confirm</b-button>
+      <div class="Buttons">
+        <b-button variant="outline-dark" class="cancelButton">Cancel</b-button>
+        <b-button variant="info">Confirm</b-button>
+      </div>
     </div>
-
   </div>
 </template>
 
@@ -65,10 +73,10 @@ export default {
     return {
       // selected: "Sort by categories",
       // isGoalModalVisible: false'
-      amount: '',
-      title: '',
-      category: '',
-      description: ''
+      amount: "",
+      title: "",
+      selected: "",
+      description: ""
     };
   },
 
@@ -150,11 +158,17 @@ export default {
   height: 100%;
   border-radius: 15px;
   background-color: #e1dddd;
-  color: #000000;
+  color: #4D2D13;
   text-align: left;
   padding-left: 37px;
   padding-right: 37px;
   padding-top: 5px;
+}
+
+.title {
+  color: black;
+  margin-top: 15px;
+  padding-bottom: 10px;
 }
 
 .inputBox {
@@ -184,5 +198,21 @@ export default {
   background-color: grey;
   width: 100%;
   border-radius: 35px;
+}
+
+.formRow {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.Buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cancelButton {
+  margin-right: 10px;
 }
 </style>

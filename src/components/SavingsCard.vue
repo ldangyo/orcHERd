@@ -27,11 +27,12 @@
               </div>
             </div>
           </ul>
+        <div class="empty"></div>
         </div>
         <div v-else>
           <ul class="savingsGoals">
             <div v-for="goal in getGoalsSortedByDate" :key="goal.name">
-              <div class="subBox">{{ goal.name }} ${{goal.amountSaved}}/{{goal.amountReq}}</div>
+              <div class="subBox"><h3>{{ goal.name }}</h3><h3>${{goal.amountSaved}}/{{goal.amountReq}}</h3></div>
             </div>
           </ul>
         </div>
@@ -186,6 +187,9 @@ margin-bottom: 0;
   width: 100%;
   height: 40px;
   border-radius: 8px;
+  padding-top: 0.9375rem;
+  padding-left: 2%;
+;
 }
 
 .dropDownMenu {
