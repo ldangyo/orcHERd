@@ -21,9 +21,12 @@
       </div>
     </div>
     <div v-if="getSpendings">
-      <div class="OrchardCanvas sky" v-if="soloTree">
-        <div v-if="spuce">
-          <TreeGoal treeType="skinny" />
+      <div class="OrchardCanvas sky">
+        <div v-if="getSkinnyTree">
+          <skinnyTree />
+        </div>
+        <div v-if="getBushyTree">
+          <bushyTree />
         </div>
       </div>
     </div>
@@ -33,6 +36,9 @@
 <script>
 import { mapGetters } from "vuex";
 import TreeGoal from "./Trees/TreeGoal";
+import skinnyTree from "./Trees/skinnyTree";
+import bushyTree from "./Trees/bushyTree";
+
 export default {
   name: "OrchardCanvas",
   data() {
@@ -42,7 +48,9 @@ export default {
     };
   },
   components: {
-    TreeGoal
+    TreeGoal,
+    skinnyTree,
+    bushyTree
   },
   methods: {
     getGoalTree() {
@@ -97,7 +105,9 @@ export default {
       "getSelectedGoalIndex",
       "getAddedTree",
       "getSpendings",
-      "getSavings"
+      "getSavings",
+      "getBushyTree",
+      "getSkinnyTree"
     ])
   }
 };

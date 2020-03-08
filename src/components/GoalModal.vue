@@ -1,38 +1,3 @@
-<script>
-export default {
-  name: "modal",
-
-  data() {
-    return {
-      amount: "",
-      goalName: "",
-      category: "",
-      date: "2020-06-01"
-    };
-  },
-
-  methods: {
-    close() {
-      var name = this.goalName;
-      var amountReq = this.amount;
-      var category = this.category;
-      var amountSaved = 0;
-      var targetDate = "2020-06-01";
-
-      const goal = {
-        name,
-        amountSaved,
-        amountReq,
-        category,
-        targetDate
-      };
-      this.$store.dispatch("addGoal", goal);
-      this.$store.dispatch("changeAddedTree", true);
-      this.$emit("close");
-    }
-  }
-};
-</script>
 
 <template>
   <div class="modal-backdrop">
@@ -77,6 +42,42 @@ export default {
     </div>
   </div>
 </template>
+<script>
+export default {
+  name: "modal",
+
+  data() {
+    return {
+      amount: "",
+      goalName: "",
+      category: "",
+      date: "2020-06-01"
+    };
+  },
+
+  methods: {
+    close() {
+      var name = this.goalName;
+      var amountReq = this.amount;
+      var category = this.category;
+      var amountSaved = 0;
+      var targetDate = "2020-06-01";
+
+      const goal = {
+        name,
+        amountSaved,
+        amountReq,
+        category,
+        targetDate
+      };
+      this.$store.dispatch("addGoal", goal);
+      this.$store.dispatch("changeAddedTree", true);
+      this.$emit("close");
+    }
+  }
+};
+</script>
+
 
 <style>
 .modal-backdrop {

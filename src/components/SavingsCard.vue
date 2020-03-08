@@ -20,19 +20,22 @@
           <ul class="savingsGoals">
             <div v-for="cat in getGoalsSortedByCategory" :key="cat.categoryName">
               <div v-if="cat.goals.length > 0">
-                <h4  style="margin-bottom:0">{{cat.categoryName}}</h4>
+                <h4 style="margin-bottom:0">{{cat.categoryName}}</h4>
                 <div v-for="goal in cat.goals" :key="goal.name">
                   <div class="subBox">{{ goal.name }} ${{goal.amountSaved}}/{{goal.amountReq}}</div>
                 </div>
               </div>
             </div>
           </ul>
-        <div class="empty"></div>
+          <div class="empty"></div>
         </div>
         <div v-else>
           <ul class="savingsGoals">
             <div v-for="goal in getGoalsSortedByDate" :key="goal.name">
-              <div class="subBox"><h3>{{ goal.name }}</h3><h3>${{goal.amountSaved}}/{{goal.amountReq}}</h3></div>
+              <div class="subBox">
+                <h3>{{ goal.name }}</h3>
+                <h3>${{goal.amountSaved}}/{{goal.amountReq}}</h3>
+              </div>
             </div>
           </ul>
         </div>
@@ -44,10 +47,10 @@
           <div class="blank"></div>
           <h3>${{getTotal}}</h3>
         </div>
-        <GoalModal v-show="isGoalModalVisible" @close="closeGoalModal" />
         <button class="goalButt" @click="showGoalModal()">
           <img src="../assets/addmoney.png" alt />
         </button>
+        <GoalModal v-show="isGoalModalVisible" @close="closeGoalModal" />
       </div>
       <h5 style="padding-left:84%; margin-top:0">Add a Goal!</h5>
     </div>
@@ -178,7 +181,7 @@ export default {
 
 .savingsGoals {
   padding: 0px;
-margin-bottom: 0;
+  margin-bottom: 0;
   vertical-align: middle;
 }
 
@@ -189,7 +192,6 @@ margin-bottom: 0;
   border-radius: 8px;
   padding-top: 0.9375rem;
   padding-left: 2%;
-;
 }
 
 .dropDownMenu {

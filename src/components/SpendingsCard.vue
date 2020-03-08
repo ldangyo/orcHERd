@@ -10,7 +10,9 @@
       <h3 class="title">Spend Money</h3>
       <div class="empty"></div>
       <div class="formRow">
-        <h4><p>Amount*</p></h4>
+        <h4>
+          <p>Amount*</p>
+        </h4>
         <b-form-input
           v-model="amount"
           class="inputBox"
@@ -19,7 +21,9 @@
         ></b-form-input>
       </div>
       <div class="formRow">
-        <h4><p>Title*</p></h4>
+        <h4>
+          <p>Title*</p>
+        </h4>
         <b-form-input
           v-model="title"
           class="inputBox"
@@ -28,7 +32,9 @@
         ></b-form-input>
       </div>
       <div class="formRow">
-        <h4><p>Category*</p></h4>
+        <h4>
+          <p>Category*</p>
+        </h4>
         <select class="dropDownMenu" v-model="selected">
           <option style="background:none" disabled value>Please select one</option>
           <option>Makeup</option>
@@ -43,7 +49,9 @@
         </select>
       </div>
       <div class="formRow">
-        <h4><p>Description</p></h4>
+        <h4>
+          <p>Description</p>
+        </h4>
         <b-form-input
           v-model="description"
           class="inputBox"
@@ -53,7 +61,7 @@
       </div>
       <div class="Buttons">
         <b-button variant="outline-dark" class="cancelButton">Cancel</b-button>
-        <b-button variant="info" class="confirmButton">Confirm</b-button>
+        <b-button variant="info" @click="clickSpend()">Confirm</b-button>
       </div>
     </div>
   </div>
@@ -74,6 +82,10 @@ export default {
       var goal = "";
 
       this.$store.dispatch("addGoal", goal);
+    },
+    clickSpend() {
+      alert("Oh no u broke : ' (");
+      this.$store.dispatch("updateTreeType", "skinny");
     }
     // showGoalModal() {
     //   this.isGoalModalVisible = true;
@@ -242,7 +254,7 @@ export default {
 .confirmButton {
   background-color: #badff1;
   border: none;
-  color:#4d2d13;
+  color: #4d2d13;
 }
 
 .cardContents {
