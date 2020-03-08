@@ -13,11 +13,13 @@ export default new Vuex.Store({
         selectedGoalIndex: 0,
         showGoalInfo: false,
         selectedMainTree: false,
+        addedTree: false,
 
         categories: ['Makeup', 'Clothing', 'Sports', 'Food', 'Entertainment', 'Travel', 'Social', 'Toy', 'Other'],
     },
 
     getters: {
+        getAddedTree: state => state.addedTree,
         getTotalMoney: state => state.totalMoney,
         getSavingGoals: state => {
             return state.savingGoals
@@ -37,7 +39,12 @@ export default new Vuex.Store({
     },
 
     actions: {
+        changeAddedTree({ commit }, data) {
+            console.log('sup')
+            commit("updateAddedTree", data)
+        },
         addGoal({ commit }, data) {
+            console.log(data)
             commit("setAddGoal", data)
         },
         //actions for goal Index
@@ -74,6 +81,9 @@ export default new Vuex.Store({
 
     mutations: {
         //setters for goals
+        updateAddedTree(state, data) {
+            state.addedTree = data
+        },
         setIncrGoal(state) {
             state.selectedGoalIndex++
         },
@@ -91,6 +101,7 @@ export default new Vuex.Store({
 
         setAddGoal(state, data) {
             state.savingGoals.push(data)
+            console.log(state.savingGoals)
         },
     },
 

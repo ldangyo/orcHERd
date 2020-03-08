@@ -7,18 +7,17 @@
       <img class="arrow left" src="@/assets/leftarrow.svg" alt />
 
       <div class="OrchardCanvas allTrees" v-if="treeClicked" @click="mainTreeClicked()">
-        OrchardCanvas
         <div class="mainTree"></div>
-        <div class="goalTree"></div>
+        <div class="goalTree" v-if="getAddedTree">
+          <TreeGoal type="sprout" />
+        </div>
       </div>
       <div class="OrchardCanvas sky" v-if="soloTree">
         <div class="mainTree"></div>
         <div class="goalTree">
-          <TreeGoal />
+          <TreeGoal type="teen" />
         </div>
       </div>
-      <!-- <div v-for="(goal, index) in getSavingGoals" :key="index">
-      <div>{{ goal.name }}</div>-->
     </div>
   </div>
 </template>
@@ -45,6 +44,7 @@ export default {
     },
     nextTree() {
       //   console.log(this.getSelectedGoalIndex);
+      console.log(this.getAddedTree);
       this.$store.dispatch("incrGoalIndex");
     },
     backTree() {
@@ -84,7 +84,7 @@ export default {
     curGoalTree() {
       return this.getSavingGoals[this.getSelectedGoalIndex];
     },
-    ...mapGetters(["getSavingGoals", "getSelectedGoalIndex"])
+    ...mapGetters(["getSavingGoals", "getSelectedGoalIndex", "getAddedTree"])
   }
 };
 </script>
