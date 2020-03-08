@@ -1,17 +1,20 @@
 <template>
   <div class="MainPage">
     <OrchardCanvas />
+    <NavBar />
     <!-- {{getSavingGoals}} -->
   </div>
 </template>
 
 <script>
 import OrchardCanvas from "./OrchardCanvas.vue";
+import NavBar from "./NavBar";
 
 export default {
   name: "MainPage",
   components: {
-    OrchardCanvas
+    OrchardCanvas,
+    NavBar
   }
 };
 </script>
