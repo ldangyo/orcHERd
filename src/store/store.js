@@ -13,6 +13,7 @@ export default new Vuex.Store({
         ],
         selectedGoalIndex: 0,
         showGoalInfo: false,
+        selectedMainTree: false,
 
     },
 
@@ -20,10 +21,13 @@ export default new Vuex.Store({
         getSavingGoals: state => {
             return state.savingGoals
         },
-        getselectedGoalIndex: state => {
+        getSelectedGoalIndex: state => {
             return state.selectedGoalIndex
         },
-        getshowGoalInfo: state => {
+        getShowGoalInfo: state => {
+            return state.showGoalInfo
+        },
+        getSelectedMainTree: state => {
             return state.showGoalInfo
         }
     },

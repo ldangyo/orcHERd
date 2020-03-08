@@ -18,7 +18,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.loginCred {
-  padding-top: 2rem;
+.MainPage {
+  padding: 2rem;
 }
 </style>
