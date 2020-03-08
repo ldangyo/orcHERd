@@ -37,7 +37,7 @@
       </div>
       <div class="Buttons">
         <b-button variant="outline-dark" class="cancelButton">Cancel</b-button>
-        <b-button variant="info">Confirm</b-button>
+        <b-button variant="info" @click="clickSpend()">Confirm</b-button>
       </div>
     </div>
   </div>
@@ -58,6 +58,10 @@ export default {
       var goal = "";
 
       this.$store.dispatch("addGoal", goal);
+    },
+    clickSpend() {
+      alert("Oh no u broke : ' (");
+      this.$store.dispatch("updateTreeType", "skinny");
     }
     // showGoalModal() {
     //   this.isGoalModalVisible = true;
@@ -158,7 +162,7 @@ export default {
   height: 100%;
   border-radius: 15px;
   background-color: #e1dddd;
-  color: #4D2D13;
+  color: #4d2d13;
   text-align: left;
   padding-left: 37px;
   padding-right: 37px;

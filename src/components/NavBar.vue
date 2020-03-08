@@ -34,6 +34,7 @@ export default {
   name: "NavBar",
   methods: {
     savingsClicked() {
+      this.$store.dispatch("updateTreeType", "fat");
       this.$store.dispatch("updateType", "savings");
     },
     spendingClicked() {
